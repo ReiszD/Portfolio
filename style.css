@@ -765,6 +765,10 @@ footer {
     color: #ffffff;
 }
 
+.footer__copyright {
+    padding-top: 16px;
+}
+
 .footer__logo--popper {
     position: absolute;
     right: 0;
