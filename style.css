@@ -168,12 +168,14 @@ nav,
 .dark-theme .section__subtitle,
 .dark-theme .nav__link--anchor,
 .dark-theme .fa-circle-half-stroke
-.dark-theme .header__para {
+.dark-theme .header__para,
+.dark-theme .about-me__info--title {
     color: white;
 }
 
 .dark-theme section {
     background-color: #242424;
+    color: #ffffff;
 }
 
 .dark-theme .personal__logo {
