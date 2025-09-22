@@ -1,0 +1,24 @@
+[
+  {
+    "company": "Skinstric AI",
+    "role": "Software Engineer",
+    "resps": [
+      "Architected real-time skin analysis platform using OpenAI Vision API and React.js, achieving 98% detection accuracy across diverse skin conditions",
+      "Developed responsive UI with Standard CSS and GSAP animations, implementing dynamic skincare recommendation cards with 60% improved engagement",
+      "Optimized performance using React Server Components and GSAP animations, achieving sub-2-second analysis time for skin condition detection",
+      "Built custom animation system using GSAP timeline for seamless user experience during skin analysis processing, increasing user retention by 40%"
+    ],
+    "date": "June 2025 - Oct 2025"
+  },
+  {
+    "company": "NFT Ultraverse",
+    "role": "Software Engineer",
+    "resps": [
+      "Integrated RESTful API’s using Axios to retrieve NFT metadata and digital assets, achieving 95% successful request rate and sub-2 second load times with a fully functional and dynamic NFT website using React.js and Firebase, increasing API responses by up to 20%",
+      "Monitored & maintained the UI to ensure an uptime of 99.99% using Vercel logging and CI/CD deployment pipelines",
+      "Employed Git Flow branching strategy to help with constant development and integration, reducing manual efforts of deployment by 100%",
+      "Worked closely with a senior developer to ensure code quality is up to standard, well tested and well maintained. Obtaining an overall code coverage of 80%. Utilised Jest & React Testing Library"
+    ],
+    "date": "Apr 2025 - May 2025"
+  }
+]
