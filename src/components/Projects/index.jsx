@@ -29,25 +29,32 @@ export default function Projects() {
 
   const works = [
     {
-      client: "client name",
-      year: "2023",
+      client: "PingUp",
+      year: "2025",
       img: work1,
-      title: "Revamping Global Lifestyle Brand.",
-      detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      title: "Share your Life Stories. Generationally.",
+      detail: "Engineered a fully functional social media clone with real-time chat and messaging, post & feed system to share text or image-based content, follow/unfollow capabilites, friend request management, story status and uploads, and discovery page to search for new users.",
     },
     {
-      client: "client name",
-      year: "2023",
+      client: "Agency.AI",
+      year: "2025",
       img: work2,
       title: "Next generation Web Management System.",
-      detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      detail: "Built a modern Digital Agency website with animations, fully functional contact form allowing the customer to submit it for the admit to receive customer query with Email ID.",
     },
     {
-      client: "client name",
-      year: "2023",
+      client: "Netflix Clone",
+      year: "2025",
+      img: work2,
+      title: "Recreating Netflix TV Search.",
+      detail: "Engineered & integrated a tv show database with a fully responsive design to match Netflix layout including various sections for top-rated, newly released, popular shows, Netflix loading state, scroll carousel, dynamic routing to show trailers for specific tv shows, sign-up and login page to store users data in Firebase.",
+    },
+    {
+      client: "Search API Database",
+      year: "2025",
       img: work3,
-      title: "Share your Life Stories. Generationally.",
-      detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      title: "Search your Favorite Movies. Generationally.",
+      detail: "Engineered & integrated a search API for movies with a fully responsive design, loading states & dynamic routing to showcase end users movies on a mass level search and showcase movies on an individual route.",
     },
   ]
 
