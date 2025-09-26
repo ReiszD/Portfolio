@@ -56,6 +56,13 @@ export default function Projects() {
       title: "Search your Favorite Movies. Generationally.",
       detail: "Engineered & integrated a search API for movies with a fully responsive design, loading states & dynamic routing to showcase end users movies on a mass level search and showcase movies on an individual route.",
     },
+    {
+      client: "E-Commerce Library",
+      year: "2025",
+      img: work3,
+      title: "Next generation Web Management System.",
+      detail: "Built a modern E-Commerce website with a fully integrated library including individual book with book recommendations and add to cart and checkout function.",
+    },
   ]
 
   const opacityVariant = {
