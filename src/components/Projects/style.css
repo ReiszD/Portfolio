@@ -61,6 +61,11 @@
   animation: blinkGlow 12s linear infinite;
 }
 
+img {
+  opacity: 0.8;
+  filter: blur(3px);
+}
+
 @keyframes blinkGlow {
   0% {
     opacity: 0;

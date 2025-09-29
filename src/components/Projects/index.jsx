@@ -7,9 +7,11 @@ import ParaWriting from "../ParaWriting"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-import work1 from "../../assets/Images/work1.png"
-import work2 from "../../assets/Images/work2.png"
-import work3 from "../../assets/Images/work3.png"
+import work1 from "../../assets/Images/pingup-clone.png"
+import work2 from "../../assets/Images/agency.ai-home.png"
+import work3 from "../../assets/Images/netflix-clone.png"
+import work4 from "../../assets/Images/search-api.png"
+import work5 from "../../assets/Images/e-commerce.png"
 
 export default function Projects() {
   const controls = useAnimation()
@@ -45,21 +47,21 @@ export default function Projects() {
     {
       client: "Netflix Clone",
       year: "2025",
-      img: work2,
+      img: work3,
       title: "Recreating Netflix TV Search.",
       detail: "Engineered & integrated a tv show database with a fully responsive design to match Netflix layout including various sections for top-rated, newly released, popular shows, Netflix loading state, scroll carousel, dynamic routing to show trailers for specific tv shows, sign-up and login page to store users data in Firebase.",
     },
     {
       client: "Search API Database",
       year: "2025",
-      img: work3,
+      img: work4,
       title: "Search your Favorite Movies. Generationally.",
       detail: "Engineered & integrated a search API for movies with a fully responsive design, loading states & dynamic routing to showcase end users movies on a mass level search and showcase movies on an individual route.",
     },
     {
       client: "E-Commerce Library",
       year: "2025",
-      img: work3,
+      img: work5,
       title: "Next generation Web Management System.",
       detail: "Built a modern E-Commerce website with a fully integrated library including individual book with book recommendations and add to cart and checkout function.",
     },
