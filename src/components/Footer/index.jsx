@@ -21,7 +21,16 @@ export default function Footer() {
   const [isSending, setIsSending] = useState(false)
   const [sendStatus, setSendStatus] = useState({ processed: false, message: "", variant: "success" })
   const [hasAnimated, setHasAnimated] = useState(false)
+
+  // field values as strings
   const [fieldValues, setFieldValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
+
+  // track active inputs for animation
+  const [fieldActive, setFieldActive] = useState({
     name: false,
     email: false,
     message: false,
@@ -36,7 +45,7 @@ export default function Footer() {
     if (inView && !hasAnimated) {
       controls.start("visible")
     }
-  }, [inView, controls])
+  }, [inView, controls, hasAnimated])
 
   const opacityVariant = {
     hidden: { opacity: 0 },
@@ -45,9 +54,7 @@ export default function Footer() {
 
   const inputFieldLineVariant = {
     hidden: { width: "0%" },
-    visible: {
-      width: "100%",
-    },
+    visible: { width: "100%" },
   }
 
   const inputFields = [
@@ -77,8 +84,8 @@ export default function Footer() {
   ]
 
   const handleInputClick = (stateKey) => {
-    setFieldValues({
-      ...fieldValues,
+    setFieldActive({
+      ...fieldActive,
       [stateKey]: true,
     })
   }
@@ -90,7 +97,7 @@ export default function Footer() {
 
   const sendEmail = async () => {
     const requiredFields = ["name", "email", "message"]
-    const missingFields = requiredFields.filter((field) => !fieldValues[field])
+    const missingFields = requiredFields.filter((field) => !fieldValues[field].trim())
 
     if (missingFields.length > 0) {
       setSendStatus({ processed: true, variant: "error", message: "Not all fields were filled" })
@@ -98,9 +105,11 @@ export default function Footer() {
       return
     }
 
+    const email = fieldValues.email.trim()
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(fieldValues.email)) {
+    if (!emailRegex.test(email)) {
       setSendStatus({ processed: true, variant: "error", message: "Invalid email" })
+      timeoutAlert()
       return
     }
 
@@ -108,11 +117,9 @@ export default function Footer() {
     try {
       const { serviceId, templateid, publicKey } = emailjsconfig
 
-      console.log("trigger")
-
       const templateParams = {
         name: fieldValues.name,
-        email: fieldValues.email,
+        email: email,
         message: fieldValues.message,
       }
 
@@ -124,7 +131,7 @@ export default function Footer() {
     } catch (error) {
       console.error("Error sending email:", error)
       setIsSending(false)
-      setSendStatus({ processed: true, variant: "error", message: "Error" })
+      setSendStatus({ processed: true, variant: "error", message: "Error sending email" })
     }
 
     timeoutAlert()
@@ -142,9 +149,48 @@ export default function Footer() {
         </div>
         <div className="footer--grid--form">
           {inputFields.map((field, index) => (
-            <motion.div key={index} initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 0.5 * (index + 1) }} className="input--div">
+            <motion.div
+              key={index}
+              initial="hidden"
+              animate={controls}
+              variants={opacityVariant}
+              transition={{ duration: 1, delay: 0.5 * (index + 1) }}
+              className="input--div"
+            >
               <label htmlFor={field.id}>{field.label}</label>
-              {field.type === "textarea" ? <textarea name={field.id} id={field.id} placeholder={field.placeholder} rows={field.rows} wrap={field.wrap} onClick={() => handleInputClick(field.stateKey)}></textarea> : <input type={field.type} name={field.id} id={field.id} placeholder={field.placeholder} onClick={() => handleInputClick(field.stateKey)} />}
+              {field.type === "textarea" ? (
+                <textarea
+                  name={field.id}
+                  id={field.id}
+                  placeholder={field.placeholder}
+                  rows={field.rows}
+                  wrap={field.wrap}
+                  value={fieldValues[field.stateKey]}
+                  onChange={(e) =>
+                    setFieldValues({
+                      ...fieldValues,
+                      [field.stateKey]: e.target.value,
+                    })
+                  }
+                  onClick={() => handleInputClick(field.stateKey)}
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  name={field.id}
+                  id={field.id}
+                  placeholder={field.placeholder}
+                  value={fieldValues[field.stateKey]}
+                  onChange={(e) =>
+                    setFieldValues({
+                      ...fieldValues,
+                      [field.stateKey]: e.target.value,
+                    })
+                  }
+                  onClick={() => handleInputClick(field.stateKey)}
+                />
+              )}
+
               <motion.div
                 initial="hidden"
                 animate={controls}
@@ -159,7 +205,7 @@ export default function Footer() {
               >
                 <motion.div
                   initial="hidden"
-                  animate={fieldValues[field.stateKey] && "visible"}
+                  animate={fieldActive[field.stateKey] || fieldValues[field.stateKey] ? "visible" : "hidden"}
                   variants={inputFieldLineVariant}
                   transition={{
                     type: "spring",
@@ -170,19 +216,34 @@ export default function Footer() {
               </motion.div>
             </motion.div>
           ))}
-          <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 2 }} className="footer--grid--form--btn">
+
+          <motion.div
+            initial="hidden"
+            animate={controls}
+            variants={opacityVariant}
+            transition={{ duration: 1, delay: 2 }}
+            className="footer--grid--form--btn"
+          >
             <Button label={`${isSending ? "Sending it through" : "SEND MESSAGE"}`} icon={ArrowUpRightIcon} onClick={sendEmail} />
           </motion.div>
         </div>
       </div>
 
-      <motion.div initial="hidden" animate={controls} variants={opacityVariant} transition={{ duration: 1, delay: 2.5 }} className="footer--bottom" onAnimationComplete={() => handleComplete()}>
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={opacityVariant}
+        transition={{ duration: 1, delay: 2.5 }}
+        className="footer--bottom"
+        onAnimationComplete={() => handleComplete()}
+      >
         <p>Copyright © {new Date().getFullYear()} Reisz Davis</p>
         <p>
           <Time delay={3} />
         </p>
         <p></p>
       </motion.div>
+
       <Alert isVisible={sendStatus.processed} text={sendStatus.message} variant={sendStatus.variant} />
     </footer>
   )
