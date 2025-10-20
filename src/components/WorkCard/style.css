@@ -40,7 +40,7 @@
   position: absolute;
   right: 0px;
   bottom: 50px;
-  color: #fff;
+  color: #ffffff;
   font-size: 18px;
   font-family: var(--NML);
   font-style: normal;
@@ -67,7 +67,7 @@
 
 .workCard--body img {
   opacity: 0.8;
-  filter: saturate(0.3) blur(3px);
+  filter:  blur(3px);
   border-radius: 15px;
 }
 
