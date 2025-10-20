@@ -12,6 +12,7 @@ import work2 from "../../assets/Images/agency.ai-home.png"
 import work3 from "../../assets/Images/netflix-clone.png"
 import work4 from "../../assets/Images/search-api.png"
 import work5 from "../../assets/Images/e-commerce.png"
+import work6 from "../../assets/Images/Summarist.png"
 
 export default function Projects() {
   const controls = useAnimation()
@@ -30,6 +31,13 @@ export default function Projects() {
   }, [inView, controls])
 
   const works = [
+    {
+      client: "Summarist",
+      year: "2025",
+      img: work6,
+      title: "Empowering Readers with a Smarter Digital Library.",
+      detail: "Developed an interactive library platform where users can seamlessly browse the collection, add and remove books from a personal library collection, listen to a preview of the book, upgrade their subscription, and enjoy an intuitive, organized reading experience.",
+    },
     {
       client: "PingUp",
       year: "2025",
